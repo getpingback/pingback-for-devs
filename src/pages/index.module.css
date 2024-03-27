@@ -1,0 +1,68 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+.section {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.badge {
+  font-weight: 600;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  margin-bottom: 2.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: #9061f9;
+  border-color: 1px;
+  border-color: rgba(144, 97, 249, 0.24);
+  background: rgba(144, 97, 249, 0.08);
+}
+
+.title {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 900;
+}
+
+.subtitle {
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  line-height: 1.5rem;
+}
+
+.button {
+  margin-top: 1.5rem;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 23.8px;
+  transition: all 0.2s ease;
+}
+
+@media (min-width: 1024px) {
+  .title {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
