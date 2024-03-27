@@ -61,7 +61,7 @@ export default function Home() {
 
           <p className={styles.subtitle}>Get started with the Pingback API and integrate with your product.</p>
 
-          <Link to='/docs/api/getting-started' className={clsx("button button--primary", styles.button)}>
+          <Link to='/docs/api/intro' className={clsx("button button--primary", styles.button)}>
             Get Started
           </Link>
         </section>

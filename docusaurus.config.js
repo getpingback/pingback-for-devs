@@ -80,15 +80,15 @@ const config = {
             items: [
               {
                 label: "API",
-                to: "/docs/intro",
+                to: "/docs/api/intro",
               },
               {
                 label: "Embed",
-                to: "/docs/intro",
+                to: "/docs/embed/intro",
               },
               {
-                label: "Email Verification",
-                to: "/docs/intro",
+                label: "Email Verification Library",
+                to: "/docs/email-verification-library/intro",
               },
             ],
           },
@@ -106,6 +106,19 @@ const config = {
               {
                 label: "Twitter",
                 href: "https://twitter.com/pingbackoficial",
+              },
+            ],
+          },
+          {
+            title: "Legal",
+            items: [
+              {
+                label: "Terms of Use",
+                href: "https://pingback.com/newsroom/termos-de-uso",
+              },
+              {
+                label: "Privacy Policy",
+                href: "https://pingback.com/newsroom/politica-de-privacidade-e-protecao-de-dados",
               },
             ],
           },
