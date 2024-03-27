@@ -1,10 +1,8 @@
 // @ts-check
-// `@type` JSDoc annotations allow editor autocompletion and type checking
-// (when paired with `@ts-check`).
-// There are various equivalent ways to declare your Docusaurus config.
-// See: https://docusaurus.io/docs/api/docusaurus-config
+// Note: type annotations allow type checking and IDEs autocompletion
 
-import { themes as prismThemes } from "prism-react-renderer";
+const lightCodeTheme = require("prism-react-renderer/themes/github");
+const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -12,23 +10,15 @@ const config = {
   tagline: "From Developers to Developers",
   favicon: "img/favicon.ico",
 
-  // Set the production url of your site here
   url: "https://developers.pingback.com",
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
+
   baseUrl: "/",
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: "getpingback", // Usually your GitHub org/user name.
-  projectName: "pingback-for-devs", // Usually your repo name.
-
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
+  organizationName: "getpingback",
+  projectName: "pingback-for-devs",
+
   i18n: {
     defaultLocale: "en",
     locales: ["en"],
@@ -40,14 +30,14 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: "./sidebars.js",
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
+          sidebarPath: require.resolve("./sidebars.js"),
           editUrl: "https://github.com/getpingback/pingback-for-devs/tree/master/",
+          docLayoutComponent: "@theme/DocPage",
+          docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
         },
         blog: false,
         theme: {
-          customCss: "./src/css/custom.css",
+          customCss: require.resolve("./src/css/custom.css"),
         },
       }),
     ],
@@ -80,15 +70,15 @@ const config = {
             items: [
               {
                 label: "API",
-                to: "/docs/api/intro",
+                to: "/docs/api/introduction",
               },
               {
                 label: "Embed",
-                to: "/docs/embed/intro",
+                to: "/docs/embed/introduction",
               },
               {
                 label: "Email Verification Library",
-                to: "/docs/email-verification-library/intro",
+                to: "/docs/email-verification-library/introduction",
               },
             ],
           },
@@ -126,10 +116,35 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Pingback. Built with 💜 for Developers.`,
       },
       prism: {
-        theme: prismThemes.github,
-        darkTheme: prismThemes.dracula,
+        theme: lightCodeTheme,
+        darkTheme: darkCodeTheme,
+        additionalLanguages: ["ruby", "csharp", "php"],
       },
     }),
+
+  plugins: [
+    [
+      "docusaurus-plugin-openapi-docs",
+      {
+        id: "openapi",
+        docsPluginId: "classic",
+        config: {
+          petstore: {
+            specPath: "specs/api.yaml",
+            outputDir: "docs/api",
+            downloadUrl:
+              "https://raw.githubusercontent.com/PaloAltoNetworks/docusaurus-template-openapi-docs/main/examples/petstore.yaml",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+              categoryLinkSource: "tag",
+            },
+          },
+        },
+      },
+    ],
+  ],
+
+  themes: ["docusaurus-theme-openapi-docs"],
 };
 
-export default config;
+module.exports = config;
