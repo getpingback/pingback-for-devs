@@ -33,14 +33,13 @@ const sidebars = {
   openApiSidebar: [
     {
       type: "category",
-      label: "API",
+      label: "API Reference",
 
       link: {
         type: "generated-index",
-        title: "API",
-        description:
-          "This is a sample server Petstore server. You can find out more about Swagger at http://swagger.io or on irc.freenode.net, #swagger. For this sample, you can use the api key special-key to test the authorization filters.",
-        slug: "docs/api",
+        title: "API Reference",
+        description: "Welcome to the Pingback API documentation! Let's get started:",
+        slug: "api",
       },
       // @ts-ignore
       items: require("./docs/api/sidebar.js"),

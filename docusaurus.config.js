@@ -69,12 +69,8 @@ const config = {
             title: "Documentation",
             items: [
               {
-                label: "API",
+                label: "API Reference",
                 to: "/docs/api/introduction",
-              },
-              {
-                label: "Embed",
-                to: "/docs/embed/introduction",
               },
               {
                 label: "Email Verification Library",
@@ -129,11 +125,10 @@ const config = {
         id: "openapi",
         docsPluginId: "classic",
         config: {
-          petstore: {
+          api: {
             specPath: "specs/api.yaml",
             outputDir: "docs/api",
-            downloadUrl:
-              "https://raw.githubusercontent.com/PaloAltoNetworks/docusaurus-template-openapi-docs/main/examples/petstore.yaml",
+            downloadUrl: "https://raw.githubusercontent.com/getpingback/pingback-for-devs/master/specs/api.yaml",
             sidebarOptions: {
               groupPathsBy: "tag",
               categoryLinkSource: "tag",
