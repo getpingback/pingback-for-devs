@@ -172,6 +172,135 @@ paths:
                     example: ff37b0a8-de19-4f72-a7ed-0bd1cb73f29f
       requestBody:
         $ref: "#/components/requestBodies/Subscriber"
+  "/subscriber/{email}":
+    parameters:
+      - name: x-api-key
+        in: header
+        description: Your API key
+        required: true
+        schema:
+          type: string
+      - name: email
+        in: path
+        description: Subscriber email address
+        required: true
+        schema:
+          type: string
+    get:
+      tags:
+        - subscribers
+      summary: Get a subscriber
+      description: Get a subscriber by email
+      operationId: getSubscriber
+      responses:
+        "200":
+          description: Subscriber found.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/Subscriber"
+                  requestId:
+                    type: string
+        "404":
+          description: Subscriber not found.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Subscriber not found.
+                  requestId:
+                    type: string
+                    example: ff37b0a8-de19-4f72-a7ed-0bd1cb73f29f
+        "500":
+          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error.
+                  requestId:
+                    type: string
+                    example: ff37b0a8-de19-4f72-a7ed-0bd1cb73f29f
+    put:
+      tags:
+        - subscribers
+      summary: Update a subscriber
+      description: Update a subscriber by email
+      operationId: updateSubscriber
+      responses:
+        "200":
+          description: Subscriber updated.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/Subscriber"
+                  requestId:
+                    type: string
+        "404":
+          description: Subscriber not found.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Subscriber not found.
+                  requestId:
+                    type: string
+                    example: ff37b0a8-de19-4f72-a7ed-0bd1cb73f29f
+        "500":
+          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal server error.
+                  requestId:
+                    type: string
+                    example: ff37b0a8-de19-4f72-a7ed-0bd1cb73f29f
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  description: Subscriber name
+                  type: string
+                  example: John Doe
+                  required: false
+                phone:
+                  description: Subscriber phone number. It follows the E.164 format.
+                  type: string
+                  format: phone
+                  example: +5511999999999
+                  required: false
+                status:
+                  description: Subscriber status
+                  type: string
+                  enum:
+                    - free_subscriber
+                    - paid_subscriber
+                    - unsubscribed_subscriber
+                  example: free_subscriber
+                  required: false
+
 components:
   schemas:
     ApiGetResponse:
