@@ -34,3 +34,17 @@ yarn build
 ```
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
+
+## Community
+
+### Newsroom
+
+We are always posting about our latest news and updates on our Newsroom. Check it out!
+
+[Visit Pingback Newsroom](https://pingback.com/newsroom)
+
+### Twitter
+
+To receive updates about our Engineering team, follow along on Twitter.
+
+[Follow Pingback on Twitter](https://twitter.com/pingbackoficial)
