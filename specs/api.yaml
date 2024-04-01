@@ -284,13 +284,11 @@ paths:
                   description: Subscriber name
                   type: string
                   example: John Doe
-                  required: false
                 phone:
                   description: Subscriber phone number. It follows the E.164 format.
                   type: string
                   format: phone
                   example: +5511999999999
-                  required: false
                 status:
                   description: Subscriber status
                   type: string
@@ -299,8 +297,6 @@ paths:
                     - paid_subscriber
                     - unsubscribed_subscriber
                   example: free_subscriber
-                  required: false
-
 components:
   schemas:
     ApiGetResponse:
@@ -370,12 +366,10 @@ components:
           type: string
           format: phone
           example: +5511999999999
-          required: false
         name:
           description: Subscriber name
           type: string
           example: John Doe
-          required: false
         status:
           description: Subscriber status
           type: string
@@ -384,16 +378,13 @@ components:
             - paid_subscriber
             - unsubscribed_subscriber
           example: free_subscriber
-          required: false
         customFields:
           description: List of custom fields. Each custom field has a label, and value.
           $ref: "#/components/schemas/CustomFields"
-          required: false
         segmentationLists:
           description: List of segmentation lists IDs. You can get the ID by calling our support team.
           $ref: "#/components/schemas/SegmentationLists"
           example: ["ff37b0a8-de19-4f72-a7ed-0bd1cb73f29f", "ff37b0a8-de19-4f72-a7ed-0bd1cb73f29f"]
-          required: false
         blacklistedAt:
           description: Subscriber blacklisted date
           type: string
