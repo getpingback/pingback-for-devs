@@ -341,12 +341,15 @@ components:
           id:
             type: string
             readOnly: true
+            description: Custom field ID
           label:
             type: string
             example: age
+            description: Custom field label
           value:
             type: string
             example: 25
+            description: Custom field value
     SegmentationLists:
       type: array
       items:
@@ -383,11 +386,11 @@ components:
           example: free_subscriber
           required: false
         customFields:
-          description: Custom fields
+          description: List of custom fields. Each custom field has a label, and value.
           $ref: "#/components/schemas/CustomFields"
           required: false
         segmentationLists:
-          description: Segmentation lists
+          description: List of segmentation lists IDs. You can get the ID by calling our support team.
           $ref: "#/components/schemas/SegmentationLists"
           example: ["ff37b0a8-de19-4f72-a7ed-0bd1cb73f29f", "ff37b0a8-de19-4f72-a7ed-0bd1cb73f29f"]
           required: false
