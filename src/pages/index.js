@@ -44,7 +44,7 @@ export default function Home() {
     <Layout description='Pingback API Documentation for Devs. Build with Pingback'>
       <main className={styles.main}>
         <section className={styles.section}>
-          <span className={styles.badge}>FROM DEVS TO DEVS</span>
+          <span className={styles.badge}>FROM DEVELOPERS TO DEVELOPERS</span>
 
           <h1 className={styles.title}>
             <span id='shine-1' className='text-shine'>

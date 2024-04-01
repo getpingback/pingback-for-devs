@@ -1,35 +1,31 @@
-# Template
+![Pingback for Devs | Cover](https://res.cloudinary.com/pingback/image/upload/v1711974357/assets/general/pingback-for-devs_gbzkgw.png)
 
-This template is built for [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+<div align="center"><strong>Pingback for Devs</strong></div>
+<div align="center">From Developers to Developers</div>
 
-### Usage
+## Welcome to Pingback for Devs
 
-```bash
-npx create-docusaurus@2.4.3 my-website --package-manager yarn
-```
+Pingback for Devs is a vertical of Pingback that is dedicated to developers. We aim to provide you with the best resources, tutorials, and tools to help you grow.
 
-> When prompted to select a template choose `Git repository`.
+In this repository, you will find the source code for the Pingback for Devs website. The website is built using [Docusaurus 2](https://v2.docusaurus.io/).
 
-Template Repository URL:
+## Development
 
-```bash
-https://github.com/PaloAltoNetworks/docusaurus-template-openapi-docs.git
-```
-
-> When asked how the template repo should be cloned choose "copy" (unless you know better).
+### Getting Started
 
 ```bash
-cd my-website
-yarn
-```
-
-### Local Development
-
-```bash
-yarn start
+yarn dev
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+
+### Generate API Documentation
+
+```bash
+yarn gen-api-docs
+```
+
+This command generates API documentation from the `specs/api.yaml` file. The generated documentation is stored in the `docs/api` directory.
 
 ### Build
 
