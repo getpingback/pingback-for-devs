@@ -288,7 +288,7 @@ paths:
                   description: Subscriber phone number. It follows the E.164 format.
                   type: string
                   format: phone
-                  example: +5511999999999
+                  example: "+5511999999999"
                 status:
                   description: Subscriber status
                   type: string
@@ -299,36 +299,6 @@ paths:
                   example: free_subscriber
 components:
   schemas:
-    ApiGetResponse:
-      type: object
-      properties:
-        totalItems:
-          type: integer
-          format: int32
-        currentPage:
-          type: integer
-          format: int32
-        limit:
-          type: integer
-          format: int32
-        data:
-          type: array
-        requestId:
-          type: string
-    ApiPostResponse:
-      type: object
-      properties:
-        data:
-          type: array
-        requestId:
-          type: string
-    ApiErrorResponse:
-      type: object
-      properties:
-        message:
-          type: string
-        requestId:
-          type: string
     CustomFields:
       type: array
       items:
@@ -352,6 +322,8 @@ components:
         type: string
     Subscriber:
       type: object
+      required:
+        - email
       properties:
         id:
           type: string
@@ -365,7 +337,7 @@ components:
           description: Subscriber phone number. It follows the E.164 format.
           type: string
           format: phone
-          example: +5511999999999
+          example: "+5511999999999"
         name:
           description: Subscriber name
           type: string
