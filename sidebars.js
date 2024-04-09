@@ -1,15 +1,6 @@
-/**
- * Creating a sidebar enables you to:
- - create an ordered group of docs
- - render a sidebar for each doc of that group
- - provide next/previous navigation
+// @ts-nocheck
 
- The sidebars can be generated from the filesystem, or explicitly defined here.
-
- Create as many sidebars as you want.
- */
-
-// @ts-check
+const apiSidebar = require("./docs/api/sidebar.js").filter((item) => item.id !== "api/introduction");
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
@@ -41,8 +32,12 @@ const sidebars = {
         description: "Welcome to the Pingback API documentation! Let's get started:",
         slug: "api",
       },
-      // @ts-ignore
-      items: require("./docs/api/sidebar.js"),
+      items: [
+        { type: "doc", id: "api/introduction" }, // Ensure 'Introduction' is first
+        { type: "doc", id: "api/glossary", label: "Glossary" },
+        { type: "doc", id: "api/errors", label: "Errors" },
+        ...apiSidebar,
+      ],
     },
   ],
 };

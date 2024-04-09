@@ -1,0 +1,73 @@
+---
+id: errors
+title: "Errors"
+description: "Troubleshoot problems with this comprehensive breakdown of all error codes."
+sidebar_label: Errors
+hide_title: true
+custom_edit_url: null
+---
+
+import ApiLogo from "@theme/ApiLogo";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+import Export from "@theme/ApiExplorer/Export";
+
+<span className={"theme-doc-version-badge badge badge--secondary"}>Version: 1.0.0</span>
+
+<Export
+  url={"https://raw.githubusercontent.com/getpingback/pingback-for-devs/master/specs/api.yaml"}
+  proxy={undefined}
+></Export>
+
+<h1 className={"openapi__heading"}>Errors</h1>
+
+Troubleshoot problems with this comprehensive breakdown of all error codes.
+
+## Error schema
+
+We use standard HTTP response codes for success and failure notifications, and our errors are further classified by type.
+
+### `MISSING_BODY`
+
+- **Status code**: 400
+- **Message**: Body is necessary.
+- **Suggested action**: Ensure that the request body is not empty.
+
+### `INVALID_INPUT`
+
+- **Status code**: 422
+- **Messages**:
+  - `"field"` is required
+  - `"email"` must be a valid email
+  - `"phone"` contains an invalid value
+- **Suggested action**: Ensure that the request body is valid, and all required fields are present.
+
+### `INVALID_PARAMS`
+
+- **Status code**: 422
+- **Message**: Subscriber email is necessary.
+- **Suggested action**: Ensure that the subscriber email is present in the request.
+
+### `SUBSCRIBER_ALREADY_EXISTS`
+
+- **Status code**: 409
+- **Message**: Subscriber already exists.
+- **Suggested action**: Check if the subscriber already exists before creating a new one.
+
+### `SUBSCRIBER_NOT_FOUND`
+
+- **Status code**: 404
+- **Message**: Subscriber not found.
+- **Suggested action**: Check if the subscriber exists before using it.
+
+### `SEGMENTATION_LIST_NOT_FOUND`
+
+- **Status code**: 404
+- **Message**: Segmentation list not found.
+- **Suggested action**: Check if the segmentation list exists before using it.
+
+### `INTERNAL_SERVER_ERROR`
+
+- **Status code**: 500
+- **Message**: Internal server error.
+- **Suggested action**: Contact support if the error persists.

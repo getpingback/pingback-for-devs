@@ -1,0 +1,62 @@
+---
+id: glossary
+title: "Glossary"
+description: "Troubleshoot problems with this comprehensive breakdown of all error codes."
+sidebar_label: Glossary
+hide_title: true
+custom_edit_url: null
+---
+
+import ApiLogo from "@theme/ApiLogo";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+import Export from "@theme/ApiExplorer/Export";
+
+<span className={"theme-doc-version-badge badge badge--secondary"}>Version: 1.0.0</span>
+
+<Export
+  url={"https://raw.githubusercontent.com/getpingback/pingback-for-devs/master/specs/api.yaml"}
+  proxy={undefined}
+></Export>
+
+<h1 className={"openapi__heading"}>Glossary</h1>
+
+This glossary outlines key terms and functionalities of the Pingback API to provide a comprehensive understanding for end users.
+
+## Channel
+
+A **Channel** is the central entity within Pingback, where a user (Channel owner) can manage content and interactions. Key features include:
+
+- **Subscribers Management**: Channels have multiple subscribers who opt-in to receive communications.
+- **Content Distribution**: Channel owners can distribute content through newsletters via email or publish it on the channel's blog.
+- **Publishing Options**: Content can be selectively published through email, blog, or both.
+- **Membership Tiers**: Channels can have both free and paid subscribers. Paid status can be assigned to subscribers who pay or to those selected by the channel owner.
+- **Content Access Control**: Channels can restrict content access to either paid or free subscribers.
+
+## Subscriber
+
+A **Subscriber** is an individual who has opted to follow a Channel to receive updates. The status of a Subscriber can be one of the following, which are also the values used in the API to change a Subscriber's status:
+
+- **`free_subscriber`**: Indicates that the Subscriber has free access to the content.
+- **`paid_subscriber`**: Indicates that the Subscriber has paid for access to premium content.
+- **`unsubscribed_subscriber`**: Indicates that the Subscriber has chosen to opt out of receiving further communications.
+
+Subscribers can provide additional information such as name, phone number, or other custom fields via API. Their status not only defines their access level to the content but also allows for targeted communication strategies within the Channel.
+
+## Custom Field
+
+**Custom Fields** are additional data points that can be associated with a Subscriber's profile, allowing for more detailed information collection and segmentation.
+
+## Segmented Lists
+
+**Segmented Lists** are a feature for organizing Subscribers into specific groups within a Channel. These lists enable targeted content delivery, primarily through email. Key points include:
+
+- **Targeted Communication**: Content can be sent specifically to members of a Segmented List.
+- **Web Content Accessibility**: While Segmented Lists are used for email targeting, they do not restrict web content access; a Subscriber not on a specific list can still view content published on the Channel's blog.
+
+## Black List
+
+A **Black List** is a mechanism used in email communication management within the Pingback API. When a Subscriber's actions, such as marking an email as spam or consistently generating bounce-backs, indicate a negative interaction, they are added to the Black List. Key points include:
+
+- **`blackListedAt`**: This field returned by the GET route indicates the date and time when a Subscriber was added to the Black List.
+- **Email Management**: Being on the Black List means that the Subscriber will no longer receive future newsletters or communications from the Channel, as this action serves to protect the sender's reputation and ensure email deliverability.
