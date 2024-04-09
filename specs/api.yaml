@@ -61,6 +61,18 @@ info:
 
     ---
 
+    ## Developer Mode
+
+    The Pingback API has a developer mode that allows you to test your integrations without affecting your production data. To enable developer mode, you need to add a header to your request.
+
+    ```
+    x-developer-mode: true
+    ```
+
+    This mode is useful for testing your integrations and ensuring that your code is working as expected. All the data returned in developer mode is fake and does not affect your production data.
+
+    ---
+
     ## Support
 
     If you have any questions or need help, please contact our [**support team**](https://helpcenter.pingback.com/).
@@ -81,6 +93,12 @@ tags:
 paths:
   /subscriber:
     parameters:
+      - name: x-developer-mode
+        in: header
+        description: Enable developer mode. Learn more [here](/docs/api/introduction#developer-mode).
+        required: false
+        schema:
+          type: boolean
       - name: x-api-key
         in: header
         description: Your API key
@@ -180,6 +198,12 @@ paths:
         required: true
         schema:
           type: string
+      - name: x-developer-mode
+        in: header
+        description: Enable developer mode. Learn more [here](/docs/api/introduction#developer-mode).
+        required: false
+        schema:
+          type: boolean
       - name: email
         in: path
         description: Subscriber email address
