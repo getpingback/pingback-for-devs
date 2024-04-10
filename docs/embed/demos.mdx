@@ -1,0 +1,82 @@
+---
+sidebar_position: 2
+---
+
+# Demos
+
+This page contains a collection of demos that showcase the capabilities of the Pingback Embeddable Form.
+
+## Basic Demo
+
+This is a basic demo that shows how to embed the Pingback Form in your website.
+
+<pb-embeddable-form theme_color="purple-classic"></pb-embeddable-form>
+
+#### Code
+
+```html
+<pb-embeddable-form theme_color="purple-classic"></pb-embeddable-form>
+```
+
+---
+
+### Name and Phone Fields
+
+<pb-embeddable-form show_name show_phone theme_color="green"></pb-embeddable-form>
+
+#### Code
+
+```html
+<pb-embeddable-form show_name show_phone theme_color="green"></pb-embeddable-form>
+```
+
+---
+
+### Custom Fields
+
+<pb-embeddable-form
+show_name
+show_phone
+custom_field_1_id="1"
+custom_field_1_type="text"
+custom_field_1_label="CPF"
+custom_field_1_placeholder="000.000.000-00"
+custom_field_1_required
+custom_field_2_id="2"
+custom_field_2_type="dropdown"
+custom_field_2_label="Estado Civil"
+custom_field_2_placeholder="Selecione"
+custom_field_2_options="Solteiro(a),Casado(a),Divorciado(a),Viúvo(a)"
+theme_color="orange"></pb-embeddable-form>
+
+#### Code
+
+```html
+<pb-embeddable-form
+  show_name
+  show_phone
+  custom_field_1_id="1"
+  custom_field_1_type="text"
+  custom_field_1_label="CPF"
+  custom_field_1_placeholder="000.000.000-00"
+  custom_field_1_required
+  custom_field_2_id="2"
+  custom_field_2_type="dropdown"
+  custom_field_2_label="Estado Civil"
+  custom_field_2_placeholder="Selecione"
+  custom_field_2_options="Solteiro(a),Casado(a),Divorciado(a),Viúvo(a)"
+  theme_color="orange"
+></pb-embeddable-form>
+```
+
+---
+
+### Dark Theme
+
+<pb-embeddable-form theme_mode="dark" theme_color="pink"></pb-embeddable-form>
+
+#### Code
+
+```html
+<pb-embeddable-form theme_mode="dark" theme_color="pink"></pb-embeddable-form>
+```
