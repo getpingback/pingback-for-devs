@@ -4,23 +4,27 @@ sidebar_position: 2
 
 # Demos
 
-This page contains a collection of demos that showcase the capabilities of the Pingback Embeddable Form.
+This page provides a series of demos to help you understand and utilize the features of the Pingback Embeddable Form.
+
+Each demo includes a live example and the corresponding code.
 
 ## Basic Demo
 
-This is a basic demo that shows how to embed the Pingback Form in your website.
+The following demo shows the simplest way to embed the Pingback Form into your website.
 
-<pb-embeddable-form theme_color="purple-classic"></pb-embeddable-form>
+<pb-embeddable-form></pb-embeddable-form>
 
 #### Code
 
 ```html
-<pb-embeddable-form theme_color="purple-classic"></pb-embeddable-form>
+<pb-embeddable-form></pb-embeddable-form>
 ```
 
 ---
 
-### Name and Phone Fields
+## Adding Name and Phone Fields
+
+To include name and phone fields in your form, use the `show_name` and `show_phone` attributes.
 
 <pb-embeddable-form show_name show_phone theme_color="green"></pb-embeddable-form>
 
@@ -32,7 +36,11 @@ This is a basic demo that shows how to embed the Pingback Form in your website.
 
 ---
 
-### Custom Fields
+## Custom Fields
+
+You can add custom fields to your form by using the `custom_field_X_id`, `custom_field_X_type`, `custom_field_X_label`, `custom_field_X_placeholder`, and `custom_field_X_required` attributes.
+
+Replace `X` with the field number.
 
 <pb-embeddable-form
 show_name
@@ -71,7 +79,21 @@ theme_color="orange"></pb-embeddable-form>
 
 ---
 
-### Locale: en
+## Changing Language (Locale)
+
+Use the `locale` attribute to change the language of the form. Supported languages include Portuguese (`pt`), English (`en`) and Spanish (`es`).
+
+### Portuguese (`pt`)
+
+<pb-embeddable-form show_phone locale="pt" theme_color="green"></pb-embeddable-form>
+
+#### Code
+
+```html
+<pb-embeddable-form show_phone locale="pt" theme_color="green"></pb-embeddable-form>
+```
+
+### English (`en`)
 
 <pb-embeddable-form show_phone locale="en" theme_color="blue"></pb-embeddable-form>
 
@@ -81,9 +103,7 @@ theme_color="orange"></pb-embeddable-form>
 <pb-embeddable-form show_phone locale="en" theme_color="blue"></pb-embeddable-form>
 ```
 
----
-
-### Locale: es
+### Spanish (`es`)
 
 <pb-embeddable-form show_phone locale="es" theme_color="red"></pb-embeddable-form>
 
@@ -95,12 +115,80 @@ theme_color="orange"></pb-embeddable-form>
 
 ---
 
-### Dark Theme
+## Custom Call to Action
 
-<pb-embeddable-form theme_mode="dark" theme_color="pink"></pb-embeddable-form>
+You can customize the call to action button text by using the `call_to_action` attribute.
+
+<pb-embeddable-form show_name show_phone locale="en" call_to_action="Submit" theme_color="magenta"></pb-embeddable-form>
 
 #### Code
 
 ```html
-<pb-embeddable-form theme_mode="dark" theme_color="pink"></pb-embeddable-form>
+<pb-embeddable-form show_name show_phone locale="en" call_to_action="Submit" theme_color="magenta"></pb-embeddable-form>
+```
+
+---
+
+## Dark Theme
+
+To use the dark theme, set the `theme_mode` attribute to `dark`.
+
+<div style={{ backgroundColor: "#282828", padding: "2rem", borderRadius: "0.5rem", marginBottom: "1.5rem" }}>
+  <pb-embeddable-form theme_mode="dark" theme_color="pink"></pb-embeddable-form>
+</div>
+
+#### Code
+
+```html
+<div style="background-color: #282828; padding: 2rem; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+  <pb-embeddable-form theme_mode="dark" theme_color="pink"></pb-embeddable-form>
+</div>
+```
+
+---
+
+## Custom HTML with Form
+
+In this demo, we'll show you how to integrate the Pingback Embeddable Form into a custom HTML layout. This can help you create a more cohesive design and user experience for your website.
+
+<div style={{ backgroundColor: "#282828", padding: "2rem", borderRadius: "0.5rem", marginBottom: "1.5rem" }}>
+  <h2 style={{ color: "#fafafa", marginBottom: "1rem" }}>Contact Us</h2>
+  <p style={{ color: "#fafafa", marginBottom: "1.5rem" }}>Fill out the form below to get in touch with us.</p>
+  <pb-embeddable-form
+    show_name
+    show_phone
+    locale='en'
+    theme_mode='dark'
+    theme_color='teal'
+    call_to_action='Send Message'
+    custom_field_1_id='1'
+    custom_field_1_required
+    custom_field_1_type='text'
+    custom_field_1_label='Subject'
+    custom_field_1_placeholder='Enter subject'
+  />
+  <p style={{ color: "#fafafa", marginTop: "1.5rem" }}>We'll get back to you as soon as possible.</p>
+</div>
+
+#### Code
+
+```html
+<div style="background-color: #282828; padding: 2rem; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+  <h2 style="color: #fafafa; margin-bottom: 1rem;">Contact Us</h2>
+  <p style="color: #fafafa; margin-bottom: 1.5rem;">Fill out the form below to get in touch with us.</p>
+  <pb-embeddable-form
+    show_name
+    show_phone
+    locale="en"
+    theme_mode="dark"
+    theme_color="teal"
+    call_to_action="Send Message"
+    custom_field_1_id="1"
+    custom_field_1_required
+    custom_field_1_type="text"
+    custom_field_1_label="Subject"
+    custom_field_1_placeholder="Enter subject"
+  ></pb-embeddable-form>
+  <p style="color: #fafafa; margin-top: 1.5rem;">We'll get back to you as soon as possible.</p>
+</div>
 ```
