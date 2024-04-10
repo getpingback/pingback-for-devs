@@ -4,58 +4,53 @@ sidebar_position: 1
 
 # Introduction
 
-Pingback provides you with ready-to-use embeddable forms directly inside your website.
+Pingback offers customizable and secure embeddable forms for easy integration into your website, eliminating the need to build forms from scratch.
 
-Easily collect data from your users without the need to build forms from scratch. Pingback embeddable forms are customizable, secure, and easy to integrate into your website.
+These forms are designed to seamlessly collect data from your users with minimal effort.
+
+Explore various implementations and get inspired by visiting our [Demos page](/docs/embed/demos).
 
 ## Setup
 
-To get started, you need to include the Pingback script in your website. You can do this by adding the following script tag to your HTML file:
+Insert the following script tag in the `<head>` or `<body>` section of your HTML file to integrate Pingback into your website:
 
 ```html
 <script src="https://widget.pingback.com"></script>
 ```
 
-You can add this script tag to the `<head>` or `<body>` section of your HTML file.
-
 ## Usage
 
 ### Embedding a Form
 
-To embed a form in your website, add the following HTML snippet to your page:
+Insert the below HTML snippet where you want the form to appear on your page:
 
 ```html
 <pb-embeddable-form channel_id="your_channel_id"></pb-embeddable-form>
 ```
 
-Replace `your_channel_id` with the ID of the channel you want to use for the form. If you don't know the channel ID, you can ask our [**support team**](https://helpcenter.pingback.com/).
+Replace `your_channel_id` with the actual channel ID. If you're unsure of the channel ID, contact our [**support team**](https://helpcenter.pingback.com/).
 
 ### Options
 
-All the attributes can be setup without the need to write any JavaScript code. Just go to the [Embed page](https://pingback.com/publish/settings/embed) in your Pingback account and copy the code snippet.
+All attributes can be set up without writing any code. Simply visit the [Embed page](https://pingback.com/publish/settings/embed) in your Pingback account and copy the code snippet provided.
 
-However, if you want to have a better understanding, you can customize the appearance and behavior of the form by passing additional attributes to the `<pb-embeddable-form>` tag. Here are some of the available options:
+For those who want to dive deeper, you can customize the appearance and behavior of the form by adding additional attributes to the `<pb-embeddable-form>` tag. Below are some of the options you can configure:
 
 #### Behavior
 
-- `channel_id`: The ID of the channel you want to use for the form.
-- `segment_id`: The ID of the segment you want to use for the form. _Optional_.
-- `product_id`: The ID of the product you want to use for the form. _Optional_.
+- `channel_id`: ID for the channel to use.
+- `segment_id`: (Optional) ID for the segment to use.
+- `product_id`: (Optional) ID for the product to use.
 
 #### Customizing
 
-- `locale`: The language of the form. Default is `pt-BR`. Available languages are:
-  - `pt`
-  - `en`
-  - `es`
-- `call_to_action`: The text displayed on the submit button. Default is _"Inscrever"_.
-- `thanks_message`: The message displayed to the user after submitting the form. Default is _"Inscrição realizada com sucesso! Em breve você receberá novidades por email."_. If you want to redirect the user after submitting the form, you can use the `redirect_url` attribute instead.
-- `redirect_url`: The URL to redirect the user after submitting the form. _Optional_.
-- `theme_mode`: The color theme of the form:
-  - `light` _Default_.
-  - `dark`
-- `theme_color`: One of the Pingback predefined colors:
-  - `purple-classic` _Default_.
+- `locale`: Sets the form language (default: `pt`). Available languages: `pt`, `en`, `es`.
+- `call_to_action`: Text for the submit button (default: `"Inscrever"`).
+- `thanks_message`: Message post form submission (default: `"Inscrição realizada com sucesso!"`). Use `redirect_url` to redirect users post submission.
+- `redirect_url`: (Optional) URL to redirect users after form submission.
+- `theme_mode`: `light` (default) or `dark`.
+- `theme_color`: Choose from predefined colors:
+  - `purple-classic` (default)
   - `mint`
   - `cyan`
   - `teal`
@@ -76,12 +71,12 @@ However, if you want to have a better understanding, you can customize the appea
   - `orange`
   - `black`
 
-#### Predefined Fields
+#### Field Options
 
 Email is a required field. You can choose to show or hide the name and phone fields:
 
-- `show_name`: Whether to show the name field. Default is `false`.
-- `show_phone`: Whether to show the phone field. Default is `false`.
+- `show_name`: Show or hide the name field (default: `false`).
+- `show_phone`: Show or hide the phone field (default: `false`).
 
 #### Custom Fields
 
