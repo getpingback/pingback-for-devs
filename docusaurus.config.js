@@ -24,6 +24,12 @@ const config = {
     locales: ["en"],
   },
 
+  scripts: [
+    {
+      src: "https://widget.pingback.com",
+    }
+  ],
+
   presets: [
     [
       "classic",
@@ -71,6 +77,10 @@ const config = {
               {
                 label: "API Reference",
                 to: "/docs/api/introduction",
+              },
+              {
+                label: "Embeddable Form",
+                to: "/docs/embed/introduction",
               },
               {
                 label: "Email Verification Library",

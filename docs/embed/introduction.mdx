@@ -1,0 +1,127 @@
+---
+sidebar_position: 1
+---
+
+# Introduction
+
+Pingback provides you with ready-to-use embeddable forms directly inside your website.
+
+Easily collect data from your users without the need to build forms from scratch. Pingback embeddable forms are customizable, secure, and easy to integrate into your website.
+
+## Setup
+
+To get started, you need to include the Pingback script in your website. You can do this by adding the following script tag to your HTML file:
+
+```html
+<script src="https://widget.pingback.com"></script>
+```
+
+You can add this script tag to the `<head>` or `<body>` section of your HTML file.
+
+## Usage
+
+### Embedding a Form
+
+To embed a form in your website, add the following HTML snippet to your page:
+
+```html
+<pb-embeddable-form channel_id="your_channel_id"></pb-embeddable-form>
+```
+
+Replace `your_channel_id` with the ID of the channel you want to use for the form. If you don't know the channel ID, you can ask our [**support team**](https://helpcenter.pingback.com/).
+
+### Options
+
+All the attributes can be setup without the need to write any JavaScript code. Just go to the [Embed page](https://pingback.com/publish/settings/embed) in your Pingback account and copy the code snippet.
+
+However, if you want to have a better understanding, you can customize the appearance and behavior of the form by passing additional attributes to the `<pb-embeddable-form>` tag. Here are some of the available options:
+
+#### Behavior
+
+- `channel_id`: The ID of the channel you want to use for the form.
+- `segment_id`: The ID of the segment you want to use for the form. _Optional_.
+- `product_id`: The ID of the product you want to use for the form. _Optional_.
+
+#### Customizing
+
+- `call_to_action`: The text displayed on the submit button. Default is _"Inscrever"_.
+- `thanks_message`: The message displayed to the user after submitting the form. Default is _"Inscrição realizada com sucesso! Em breve você receberá novidades por email."_. If you want to redirect the user after submitting the form, you can use the `redirect_url` attribute instead.
+- `redirect_url`: The URL to redirect the user after submitting the form. _Optional_.
+- `theme_mode`: The color theme of the form:
+  - `light` _Default_.
+  - `dark`
+- `theme_color`: One of the Pingback predefined colors:
+  - `purple-classic` _Default_.
+  - `mint`
+  - `cyan`
+  - `teal`
+  - `blue`
+  - `navy-blue`
+  - `magenta`
+  - `pink`
+  - `indigo`
+  - `green`
+  - `lime`
+  - `dark-green`
+  - `scarlet`
+  - `crimson`
+  - `red`
+  - `salmon`
+  - `bronze`
+  - `yellow`
+  - `orange`
+  - `black`
+
+#### Predefined Fields
+
+Email is a required field. You can choose to show or hide the name and phone fields:
+
+- `show_name`: Whether to show the name field. Default is `false`.
+- `show_phone`: Whether to show the phone field. Default is `false`.
+
+#### Custom Fields
+
+You can add custom fields to the form by using the ones that are available in your channel. If you don't know the available fields, you can ask our [**support team**](https://helpcenter.pingback.com/).
+
+You can add up to 5 custom fields to the form. The attribute name should follow the pattern `custom_field_<index>`, where `<index>` is a number from 1 to 5.
+
+The available attributes are:
+
+- `custom_field_<index>_id`: The ID of the custom field.
+- `custom_field_<index>_type`: The type of the custom field. Possible values are:
+  - `text`
+  - `dropdown`
+- `custom_field_<index>_label`: The label of the custom field.
+- `custom_field_<index>_helper`: The helper text of the custom field. _Optional_.
+- `custom_field_<index>_options`: The options of the custom field. Required for dropdown fields. Example: `"Option 1, Option 2,Option 3"`.
+- `custom_field_<index>_required`: Whether the custom field is required. Default is `false`.
+- `custom_field_<index>_placeholder`: The placeholder text of the custom field. _Optional_.
+
+---
+
+## Demos
+
+### Default Form
+
+<pb-embeddable-form theme_color="purple-classic"></pb-embeddable-form>
+
+### Name and Phone Fields
+
+<pb-embeddable-form show_name show_phone theme_color="purple-classic"></pb-embeddable-form>
+
+### Custom Fields
+
+<pb-embeddable-form
+show_name
+show_phone
+custom_field_1_id="1"
+custom_field_1_type="text"
+custom_field_1_label="CPF"
+custom_field_1_placeholder="000.000.000-00"
+custom_field_1_required
+custom_field_2_id="2"
+custom_field_2_type="dropdown"
+custom_field_2_label="Estado Civil"
+custom_field_2_placeholder="Selecione"
+custom_field_2_options="Solteiro(a),Casado(a),Divorciado(a),Viúvo(a)"
+theme_color="purple-classic"></pb-embeddable-form>
