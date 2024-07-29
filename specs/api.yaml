@@ -90,6 +90,9 @@ tags:
   - name: subscribers
     description: Manage your Pingback subscribers.
     x-displayName: Subscribers
+  - name: segmentations
+    description: Manage your Pingback segmentation lists.
+    x-displayName: Segmentations
 paths:
   /subscriber:
     parameters:
@@ -205,6 +208,7 @@ paths:
                     example: ff37b0a8-de19-4f72-a7ed-0bd1cb73f29f
       requestBody:
         $ref: "#/components/requestBodies/Subscriber"
+
   "/subscriber/{email}":
     parameters:
       - name: x-api-key
@@ -348,6 +352,180 @@ paths:
                     - paid_subscriber
                     - unsubscribed_subscriber
                   example: free_subscriber
+
+  "/segmentation/add-subscriber/{email}":
+    parameters:
+      - name: x-api-key
+        in: header
+        description: Your API key
+        required: true
+        schema:
+          type: string
+      - name: x-developer-mode
+        in: header
+        description: Enable developer mode. Learn more [here](/docs/api/introduction#developer-mode).
+        required: false
+        schema:
+          type: boolean
+      - name: email
+        in: path
+        description: Subscriber email address
+        required: true
+        schema:
+          type: string
+    post:
+      tags:
+        - segmentations
+      summary: Add a subscriber to a segmentation list
+      description: Add a subscriber to a segmentation list by email
+      operationId: addSubscriberToSegment
+      responses:
+        "200":
+          description: Subscriber added to segmentation list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  requestId:
+                    type: string
+                  segmentationLists:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        subscriberEmail:
+                          type: string
+                        subscriberId:
+                          type: string
+                        segmentationListId:
+                          type: string
+                        createdAt:
+                          type: string
+                          format: date-time
+                        updatedAt:
+                          type: string
+                          format: date-time
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                anyOf:
+                  - title: Body is necessary
+                    type: object
+                    properties:
+                      error:
+                        type: string
+                        example: Body is necessary
+                      errorCode:
+                        type: string
+                        example: MISSING_BODY
+                      requestId:
+                        type: string
+                        example: ff37b0a8-de19-4f72-a7ed-0bd1cb73f29f
+                  - title: Subscriber not enabled
+                    type: object
+                    properties:
+                      error:
+                        type: string
+                        example: Subscriber not enabled
+                      errorCode:
+                        type: string
+                        example: SUBSCRIBER_NOT_ENABLED
+                      requestId:
+                        type: string
+                        example: ff37b0a8-de19-4f72-a7ed-0bd1cb73f29f
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                anyOf:
+                  - title: Subscriber not found
+                    type: object
+                    properties:
+                      error:
+                        type: string
+                        example: Subscriber not found
+                      errorCode:
+                        type: string
+                        example: SUBSCRIBER_NOT_FOUND
+                      requestId:
+                        type: string
+                        example: ff37b0a8-de19-4f72-a7ed-0bd1cb73f29f
+                  - title: Segmentation list not found
+                    type: object
+                    properties:
+                      error:
+                        type: string
+                        example: Segmentation list not found
+                      errorCode:
+                        type: string
+                        example: SEGMENTATION_LIST_NOT_FOUND
+                      requestId:
+                        type: string
+                        example: ff37b0a8-de19-4f72-a7ed-0bd1cb73f29f
+        "422":
+          description: Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                anyOf:
+                  - title: Subscriber email is necessary
+                    type: object
+                    properties:
+                      error:
+                        type: string
+                        example: Subscriber email is necessary
+                      errorCode:
+                        type: string
+                        example: SUBSCRIBER_EMAIL_IS_NECESSARY
+                      requestId:
+                        type: string
+                        example: ff37b0a8-de19-4f72-a7ed-0bd1cb73f29f
+                  - title: Unprocessable Entity
+                    type: object
+                    properties:
+                      error:
+                        type: string
+                        example: Unprocessable Entity.
+                      errorCode:
+                        type: string
+                        example: INVALID_INPUT
+                      requestId:
+                        type: string
+                        example: ff37b0a8-de19-4f72-a7ed-0bd1cb73f29f
+        "500":
+          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Internal server error.
+                  errorCode:
+                    type: string
+                    example: INTERNAL_SERVER_ERROR
+                  requestId:
+                    type: string
+                    example: ff37b0a8-de19-4f72-a7ed-0bd1cb73f29f
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                segmentationLists:
+                  description: List of segmentation lists IDs. You can get the ID by calling our support team.
+                  type: array
+                  items:
+                    type: string
+                  example: ["ff37b0a8-de19-4f72-a7ed-0bd1cb73f29f", "ff37b0a8-de19-4f72-a7ed-0bd1cb73f29f"]
 components:
   schemas:
     CustomFields:
