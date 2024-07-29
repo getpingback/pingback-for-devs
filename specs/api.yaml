@@ -389,14 +389,14 @@ paths:
                 properties:
                   requestId:
                     type: string
-                  segmentationLists:
+                  data:
                     type: array
                     items:
                       type: object
                       properties:
                         id:
                           type: string
-                        subscriberEmail:
+                        email:
                           type: string
                         subscriberId:
                           type: string
@@ -574,7 +574,7 @@ paths:
                     properties:
                       id:
                         type: string
-                      subscriberEmail:
+                      email:
                         type: string
                       subscriberId:
                         type: string
