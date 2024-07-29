@@ -18,8 +18,14 @@ module.exports = [
       {
         type: "doc",
         id: "api/add-subscriber-to-segment",
-        label: "Add a subscriber to a segmentation list",
+        label: "Add a subscriber to segmentation lists",
         className: "api-method post",
+      },
+      {
+        type: "doc",
+        id: "api/remove-subscriber-from-segment",
+        label: "Remove a subscriber from a segmentation list",
+        className: "api-method delete",
       },
     ],
   },
