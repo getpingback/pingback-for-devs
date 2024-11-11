@@ -73,28 +73,40 @@ For those who want to dive deeper, you can customize the appearance and behavior
 
 #### Field Options
 
-Email is a required field. You can choose to show or hide the name and phone fields:
+Email is a required field and if you set `<pb-embeddable-form />` without attributes, it will show email field by default. To pass other fields, you can use the following code as an example:
 
-- `show_name`: Show or hide the name field (default: `false`).
-- `show_phone`: Show or hide the phone field (default: `false`).
+```html
+<pb-embeddable-form
+  fields='[{"id":"name","label":"Name","type":"name"},{"id":"email","label":"E-mail","type":"email"},{"id":"phone","label":"Phone","type":"phone"}]'
+></pb-embeddable-form>
+```
+
+Types `name`, `email` and `phone` has some preset fields behavior.
 
 #### Custom Fields
 
 You can add custom fields to the form by using the ones that are available in your channel. If you don't know the available fields, you can ask our [**support team**](https://helpcenter.pingback.com/).
 
-You can add up to 5 custom fields to the form. The attribute name should follow the pattern `custom_field_<index>`, where `<index>` is a number from 1 to 5.
+You can add custom fields using the attribute `fields` as well, like in the code below:
+
+```html
+<pb-embeddable-form
+  fields='[{"id":"email","label":"E-mail","type":"email"},{"id":"1","label":"Custom Text","type":"text","placeholder":"type something"},{"id":"2","label":"Select an option","type":"dropdown","placeholder":"Some option","helper":"helper","options":["option 1","option 2"]}]'
+>
+</pb-embeddable-form>
+```
 
 The available attributes are:
 
-- `custom_field_<index>_id`: The ID of the custom field.
-- `custom_field_<index>_type`: The type of the custom field. Possible values are:
-  - `text`
-  - `dropdown`
-- `custom_field_<index>_label`: The label of the custom field.
-- `custom_field_<index>_helper`: The helper text of the custom field. _Optional_.
-- `custom_field_<index>_options`: The options of the custom field. Required for dropdown fields. Example: `"Option 1, Option 2,Option 3"`.
-- `custom_field_<index>_required`: Whether the custom field is required. Default is `false`.
-- `custom_field_<index>_placeholder`: The placeholder text of the custom field. _Optional_.
+| **Attribute** | **Description**                                                                                                      | **Possible Values**                          |
+| ------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
+| `id`          | The ID of the custom field.                                                                                          | `string`                                     |
+| `type`        | The type of the custom field.                                                                                        | `text`, `dropdown`, `email`, `name`, `phone` |
+| `label`       | The label of the custom field.                                                                                       | `string`                                     |
+| `helper`      | The helper text for the custom field. _Optional._                                                                    | `string`                                     |
+| `options`     | The options for the custom field. Required for fields of type `dropdown`. Example: `"Option 1, Option 2, Option 3"`. | `Array<string>` (only for `dropdown`)        |
+| `required`    | Indicates whether the field is mandatory. The default value is `false`.                                              | `true`, `false`                              |
+| `placeholder` | The placeholder text for the custom field. _Optional._                                                               | `string`                                     |
 
 ---
 
