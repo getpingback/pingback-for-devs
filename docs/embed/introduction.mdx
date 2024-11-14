@@ -36,6 +36,11 @@ All attributes can be set up without writing any code. Simply visit the [Embed p
 
 For those who want to dive deeper, you can customize the appearance and behavior of the form by adding additional attributes to the `<pb-embeddable-form>` tag. Below are some of the options you can configure:
 
+#### Identity
+
+- `form_id`: Unique ID of the form, used to associate the form with a specific action or context. Default value is `pb-ef-form`.
+- `form_class`: CSS class that applies specific styles to that form.
+
 #### Behavior
 
 - `channel_id`: ID for the channel to use.
@@ -98,17 +103,67 @@ You can add custom fields using the attribute `fields` as well, like in the code
 
 The available attributes are:
 
-| **Attribute** | **Description**                                                                                                      | **Possible Values**                          |
-| ------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
-| `id`          | The ID of the custom field.                                                                                          | `string`                                     |
-| `type`        | The type of the custom field.                                                                                        | `text`, `dropdown`, `email`, `name`, `phone` |
-| `label`       | The label of the custom field.                                                                                       | `string`                                     |
-| `helper`      | The helper text for the custom field. _Optional._                                                                    | `string`                                     |
-| `options`     | The options for the custom field. Required for fields of type `dropdown`. Example: `"Option 1, Option 2, Option 3"`. | `Array<string>` (only for `dropdown`)        |
-| `required`    | Indicates whether the field is mandatory. The default value is `false`.                                              | `true`, `false`                              |
-| `placeholder` | The placeholder text for the custom field. _Optional._                                                               | `string`                                     |
+| **Attribute** | **Description**                                                                                                            | **Possible Values**                          |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
+| `id`          | The ID of the custom field.                                                                                                | `string`                                     |
+| `type`        | The type of the custom field.                                                                                              | `text`, `dropdown`, `email`, `name`, `phone` |
+| `label`       | The label of the custom field.                                                                                             | `string`                                     |
+| `helper`      | The helper text for the custom field. _Optional._                                                                          | `string`                                     |
+| `options`     | The options for the custom field. Required for fields of type `dropdown`. Example: `["Option 1", "Option 2", "Option 3"]`. | `Array<string>` (only for `dropdown`)        |
+| `required`    | Indicates whether the field is mandatory. The default value is `false`.                                                    | `true`, `false`                              |
+| `placeholder` | The placeholder text for the custom field. _Optional._                                                                     | `string`                                     |
 
 ---
+
+### Callbacks
+
+It is possible to pass the following attributes as callbacks when submitting the form values:
+
+- `on_success`: Receives `formData` as param with all fields values.
+- `on_error`: Receives `formData` and `errorMessage`.
+
+Example:
+
+```html
+<script>
+  function successFn(formData) {
+    console.log(formData);
+  }
+  function errorFn(formData, errorMessage) {
+    console.log(formData, errorMessage);
+  }
+</script>
+<pb-embeddable-form
+  on_success="successFn"
+  on_error="errorFn"
+></pb-embeddable-form>
+```
+
+If you want to use callbacks in a React application, it is not possible to pass the attributes as functions directly. Instead, you can use event listeners like this:
+
+```jsx
+useEffect(() => {
+  const form = document.getElementById(FORM_ID);
+  if (form) {
+    form.addEventListener(`${FORM_ID}-submit:success`, (event) => {
+      console.log(event.detail.formData);
+      // do something on success
+    });
+
+    form.addEventListener(`${FORM_ID}-submit:error`, (event) => {
+      console.log(event.detail.formData, event.detail.error);
+      // do something on error
+    });
+  }
+
+  return () => {
+    if (form) {
+      form.removeEventListener(`${FORM_ID}-submit:success`, onSubmit);
+      form.removeEventListener(`${FORM_ID}-submit:error`, onSubmit);
+    }
+  };
+}, [onSubmit]);
+```
 
 ## Support
 
