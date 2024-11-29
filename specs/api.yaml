@@ -352,6 +352,18 @@ paths:
                     - paid_subscriber
                     - unsubscribed_subscriber
                   example: free_subscriber
+                customFields:
+                  description: List of custom fields. Each custom field has an ID and a value.
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: Custom field ID. You can get the ID by calling our support team.
+                      value:
+                        type: string
+                        description: Custom field value
 
   "/segmentation/add-subscriber/{email}":
     parameters:
