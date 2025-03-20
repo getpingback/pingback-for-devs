@@ -1,49 +1,50 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const lightCodeTheme = require('prism-react-renderer/themes/github');
+const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Pingback for Developers",
-  tagline: "From Developers to Developers",
-  favicon: "img/favicon.ico",
+  title: 'Pingback for Developers',
+  tagline: 'From Developers to Developers',
+  favicon: 'img/favicon.ico',
 
-  url: "https://developers.pingback.com",
+  url: 'https://developers.pingback.com',
 
-  baseUrl: "/",
-  onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
+  baseUrl: '/',
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
 
-  organizationName: "getpingback",
-  projectName: "pingback-for-devs",
+  organizationName: 'getpingback',
+  projectName: 'pingback-for-devs',
 
   i18n: {
-    defaultLocale: "en",
-    locales: ["en"],
+    defaultLocale: 'en',
+    locales: ['en'],
   },
 
   scripts: [
     {
-      src: "https://widget.pingback.com",
-    }
+      src: 'https://widget.pingback.com',
+    },
   ],
 
   presets: [
     [
-      "classic",
+      'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve("./sidebars.js"),
-          editUrl: "https://github.com/getpingback/pingback-for-devs/tree/master/",
-          docLayoutComponent: "@theme/DocPage",
-          docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
+          sidebarPath: require.resolve('./sidebars.js'),
+          editUrl:
+            'https://github.com/getpingback/pingback-for-devs/tree/master/',
+          docLayoutComponent: '@theme/DocPage',
+          docItemComponent: '@theme/ApiItem', // Derived from docusaurus-theme-openapi
         },
         blog: false,
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: require.resolve('./src/css/custom.css'),
         },
       }),
     ],
@@ -52,69 +53,69 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      image: "img/pingback-for-devs.png",
+      image: 'img/pingback-for-devs.png',
       navbar: {
         logo: {
-          alt: "Pingback Logo",
-          src: "img/logo-dark.svg",
-          srcDark: "img/logo-white.svg",
+          alt: 'Pingback Logo',
+          src: 'img/logo-dark.svg',
+          srcDark: 'img/logo-white.svg',
         },
         items: [
           {
-            href: "https://github.com/getpingback/pingback-for-devs",
-            position: "right",
-            className: "header-github-link",
-            "aria-label": "GitHub repository",
+            href: 'https://github.com/getpingback/pingback-for-devs',
+            position: 'right',
+            className: 'header-github-link',
+            'aria-label': 'GitHub repository',
           },
         ],
       },
       footer: {
-        style: "light",
+        style: 'light',
         links: [
           {
-            title: "Documentation",
+            title: 'Documentation',
             items: [
               {
-                label: "API Reference",
-                to: "/docs/api/introduction",
+                label: 'API Reference',
+                to: '/docs/api/introduction',
               },
               {
-                label: "Embeddable Form",
-                to: "/docs/embed/introduction",
+                label: 'Embeddable Form',
+                to: '/docs/embed/v2/introduction',
               },
               {
-                label: "Email Verification Library",
-                to: "/docs/email-verification-library/introduction",
+                label: 'Email Verification Library',
+                to: '/docs/email-verification-library/introduction',
               },
             ],
           },
           {
-            title: "Community",
+            title: 'Community',
             items: [
               {
-                label: "Newsroom",
-                href: "https://pingback.com/newsroom",
+                label: 'Newsroom',
+                href: 'https://pingback.com/newsroom',
               },
               {
-                label: "GitHub",
-                href: "https://github.com/getpingback",
+                label: 'GitHub',
+                href: 'https://github.com/getpingback',
               },
               {
-                label: "Twitter",
-                href: "https://twitter.com/pingbackoficial",
+                label: 'Twitter',
+                href: 'https://twitter.com/pingbackoficial',
               },
             ],
           },
           {
-            title: "Legal",
+            title: 'Legal',
             items: [
               {
-                label: "Terms of Use",
-                href: "https://pingback.com/newsroom/termos-de-uso",
+                label: 'Terms of Use',
+                href: 'https://pingback.com/newsroom/termos-de-uso',
               },
               {
-                label: "Privacy Policy",
-                href: "https://pingback.com/newsroom/politica-de-privacidade-e-protecao-de-dados",
+                label: 'Privacy Policy',
+                href: 'https://pingback.com/newsroom/politica-de-privacidade-e-protecao-de-dados',
               },
             ],
           },
@@ -124,24 +125,25 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ["ruby", "csharp", "php"],
+        additionalLanguages: ['ruby', 'csharp', 'php'],
       },
     }),
 
   plugins: [
     [
-      "docusaurus-plugin-openapi-docs",
+      'docusaurus-plugin-openapi-docs',
       {
-        id: "openapi",
-        docsPluginId: "classic",
+        id: 'openapi',
+        docsPluginId: 'classic',
         config: {
           api: {
-            specPath: "specs/api.yaml",
-            outputDir: "docs/api",
-            downloadUrl: "https://raw.githubusercontent.com/getpingback/pingback-for-devs/master/specs/api.yaml",
+            specPath: 'specs/api.yaml',
+            outputDir: 'docs/api',
+            downloadUrl:
+              'https://raw.githubusercontent.com/getpingback/pingback-for-devs/master/specs/api.yaml',
             sidebarOptions: {
-              groupPathsBy: "tag",
-              categoryLinkSource: "tag",
+              groupPathsBy: 'tag',
+              categoryLinkSource: 'tag',
             },
           },
         },
@@ -149,7 +151,7 @@ const config = {
     ],
   ],
 
-  themes: ["docusaurus-theme-openapi-docs"],
+  themes: ['docusaurus-theme-openapi-docs'],
 };
 
 module.exports = config;
