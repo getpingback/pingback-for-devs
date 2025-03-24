@@ -1,0 +1,14 @@
+{
+  "label": "Embeddable Form",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Embeddable Form"
+  },
+  "customProps": {
+    "badge": {
+      "text": "V1",
+      "type": "warning"
+    }
+  }
+}

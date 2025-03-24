@@ -1,0 +1,54 @@
+---
+title: Upgrade to v2
+---
+
+## Steps to upgrade to v2
+
+If you are using the old version of the Pingback Embeddable Form, you can upgrade to the new version by following the steps below.
+
+### Step 1: Update the script tag
+
+Update the script tag to use the new version of the Pingback Embeddable Form.
+
+#### Old version:
+
+```html
+<script src="https://widget.pingback.com"></script>
+```
+
+#### New version:
+
+```html
+<script src="https://widget-v2.pingback.com/assets/js/widget.js"></script>
+```
+
+### Step 2: Update the embeddable form tag
+
+Update the embeddable form tag to use the new version of the Pingback Embeddable Form.
+
+#### Old version:
+
+```html
+<pb-embeddable-form
+  channel_id="YOUR_CHANNEL_ID"
+  segment_id="YOUR_SEGMENT_ID"
+  product_id="YOUR_PRODUCT_ID"
+  locale="en"
+  theme_mode="light"
+  theme_color="purple-classic"
+  call_to_action="Subscribe"
+  thanks_message="Subscription successful!"
+  redirect_url="https://example.com"
+  fields='[{"id":"name","label":"Name","type":"name"},{"id":"email","label":"E-mail","type":"email"},{"id":"phone","label":"Phone","type":"phone"}]'
+></pb-embeddable-form>
+```
+
+#### New version:
+
+```html
+<pb-embeddable-form form_id="YOUR_FORM_ID"></pb-embeddable-form>
+```
+
+As you can see, the new version is much simpler and easier to use. All the fields and settings are pre-configured during form creation in the [Form Page](https://pingback.com/publish/forms/list/new-form) and loaded automatically by form ID.
+
+For more information about the new version, please refer to the [v2 documentation](/docs/embed/v2/introduction).

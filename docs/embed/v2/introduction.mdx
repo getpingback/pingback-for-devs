@@ -1,0 +1,104 @@
+---
+sidebar_position: 1
+---
+
+# Introduction
+
+## Setup
+
+Insert the following script tag in the `<head>` or `<body>` section of your HTML file to integrate Pingback into your website:
+
+```html
+<script src="https://widget-v2.pingback.com/assets/js/widget.js"></script>
+```
+
+:::tip
+
+It is recommended to use the `async` attribute to load the script. This will ensure that the script will be loaded asynchronously and will not block the page from loading. It is also recommended to use in body tag.
+
+```html
+<script src="https://widget-v2.pingback.com/assets/js/widget.js" async></script>
+```
+
+:::
+
+## Usage
+
+### Embedding a Form
+
+Insert the below HTML snippet where you want the form to appear on your page:
+
+```html
+<pb-embeddable-form form_id="YOUR_FORM_ID"></pb-embeddable-form>
+```
+
+Replace `form_id` with the actual form ID. If you're unsure of the form ID, contact our [**support team**](https://helpcenter.pingback.com/).
+
+### Options
+
+All form fields and settings are pre-configured during form creation in the [Form Page](https://pingback.com/publish/forms/list/new-form). Any changes made in the dashboard will automatically be reflected in the embedded form.
+
+For those who want to dive deeper, you can customize the appearance and behavior of the form by adding additional attributes to the `<pb-embeddable-form>` tag. Below are some of the options you can configure:
+
+#### Identity
+
+- `form_id`: ID of the form that was created in the [Form Page](https://pingback.com/publish/forms/list/new-form).
+
+#### Style
+
+- `form_element_id`: Unique ID of the form element. Default value is `pb-ef-form`.
+- `form_class`: CSS class that applies specific styles to that form.
+
+#### Callbacks
+
+It is possible to pass the following attributes as callbacks when submitting the form values:
+
+- `on_success`: Receives `formData` as param with all fields values.
+- `on_error`: Receives `formData` and `errorMessage`.
+
+Example:
+
+```html
+<script>
+  function successFn(formData) {
+    console.log(formData);
+  }
+  function errorFn(formData, errorMessage) {
+    console.log(formData, errorMessage);
+  }
+</script>
+<pb-embeddable-form
+  on_success="successFn"
+  on_error="errorFn"
+></pb-embeddable-form>
+```
+
+If you want to use callbacks in a React application, it is not possible to pass the attributes as functions directly. Instead, you can use event listeners like this:
+
+```jsx
+useEffect(() => {
+  const form = document.getElementById(FORM_ID);
+  if (form) {
+    form.addEventListener(`${FORM_ID}-submit:success`, (event) => {
+      console.log(event.detail.formData);
+      // do something on success
+    });
+
+    form.addEventListener(`${FORM_ID}-submit:error`, (event) => {
+      console.log(event.detail.formData, event.detail.error);
+      // do something on error
+    });
+  }
+
+  return () => {
+    if (form) {
+      form.removeEventListener(`${FORM_ID}-submit:success`, onSubmit);
+      form.removeEventListener(`${FORM_ID}-submit:error`, onSubmit);
+    }
+  };
+}, [onSubmit]);
+```
+
+## Support
+
+If you have any questions or need help, please contact our [**support team**](https://helpcenter.pingback.com/).

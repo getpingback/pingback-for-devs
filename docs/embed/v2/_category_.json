@@ -1,8 +1,14 @@
 {
   "label": "Embeddable Form",
-  "position": 2,
+  "position": 1,
   "link": {
     "type": "generated-index",
     "description": "Embeddable Form"
+  },
+  "customProps": {
+    "badge": {
+      "text": "New",
+      "type": "success"
+    }
   }
 }
