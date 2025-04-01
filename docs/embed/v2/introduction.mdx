@@ -14,10 +14,10 @@ Insert the following script tag in the `<head>` or `<body>` section of your HTML
 
 :::tip
 
-It is recommended to use the `async` attribute to load the script. This will ensure that the script will be loaded asynchronously and will not block the page from loading. It is also recommended to use in body tag.
+We recommend using the `defer` attribute in the head tag. This ensures the script loads after the page is parsed, preventing HTML parsing blocks.
 
 ```html
-<script src="https://widget-v2.pingback.com/assets/js/widget.js" async></script>
+<script src="https://widget-v2.pingback.com/assets/js/widget.js" defer></script>
 ```
 
 :::

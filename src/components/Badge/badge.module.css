@@ -6,14 +6,14 @@
   font-size: 0.75rem;
   line-height: 1rem;
   font-weight: 600;
+}
 
-  &.warning {
-    background-color: #faca151f;
-    color: #c27803;
-  }
+.warning {
+  background-color: #faca151f;
+  color: #c27803;
+}
 
-  &.success {
-    background-color: #0e9f6e1f;
-    color: #057a55;
-  }
+.success {
+  background-color: #0e9f6e1f;
+  color: #057a55;
 }
