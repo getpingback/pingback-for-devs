@@ -87,6 +87,10 @@ const config = {
                 label: 'Email Verification Library',
                 to: '/docs/email-verification-library/introduction',
               },
+              {
+                label: 'Zapier APIs Endpoints',
+                to: '/docs/zapier/introduction',
+              },
             ],
           },
           {
